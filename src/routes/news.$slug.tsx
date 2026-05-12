@@ -57,7 +57,7 @@ function NewsArticle() {
         </div>
 
         <div className="prose prose-lg mt-10 max-w-none">
-          {item.body.map((p, i) => (
+          {item.body.map((p: string, i: number) => (
             <p key={i} className="text-foreground/85 leading-relaxed text-lg mb-5">
               {p}
             </p>
