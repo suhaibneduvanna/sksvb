@@ -1,9 +1,12 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, BookOpen, GraduationCap, Globe2, HeartHandshake, Sparkles } from "lucide-react";
+import { ArrowRight, BookOpen, Calendar, GraduationCap, Globe2, HeartHandshake, Sparkles } from "lucide-react";
 import hero from "@/assets/hero-classroom.jpg";
 import books from "@/assets/books.jpg";
 import pattern from "@/assets/pattern.jpg";
 import logo from "@/assets/ieb-logo.png";
+import { news } from "@/data/news";
+import { directors } from "@/data/board";
+import { PublicationCarousel } from "@/components/site/PublicationCarousel";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -32,7 +35,13 @@ const pillars = [
   { icon: GraduationCap, title: "Trained Teachers", text: "Educators trained in modern methodology and child psychology guide every classroom." },
 ];
 
+function formatDate(d: string) {
+  return new Date(d).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" });
+}
+
 function HomePage() {
+  const latestNews = news.slice(0, 3);
+
   return (
     <>
       {/* HERO */}
@@ -168,8 +177,105 @@ function HomePage() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* PUBLICATIONS SHOWCASE */}
+      <section className="container-x py-28 grid lg:grid-cols-12 gap-12 items-center">
+        <div className="lg:col-span-6">
+          <span className="text-xs uppercase tracking-[0.25em] text-accent font-semibold">Our publications</span>
+          <h2 className="mt-4 font-display text-4xl md:text-5xl text-primary text-balance">
+            140 textbooks.<br />
+            <span className="italic font-light">Six languages. One vision.</span>
+          </h2>
+          <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty max-w-xl">
+            From foundational Aqeedah to advanced Fiqh, our textbooks cover every class from -2 to +2 in both Shafi and Hanafi traditions, plus a common moral curriculum. Written in Arabic, Malayalam, Kannada, Tamil, Urdu and English — every page calls for religious harmony and patriotism.
+          </p>
+          <p className="mt-4 text-muted-foreground leading-relaxed max-w-xl">
+            Centralised valuations and a unified syllabus mean a student in Calicut and one in Kolkata read the very same lesson, on the very same day.
+          </p>
+          <Link
+            to="/publications"
+            className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-6 py-3 text-sm font-semibold hover:shadow-elevated transition"
+          >
+            Browse the catalogue <ArrowRight className="size-4" />
+          </Link>
+        </div>
+        <div className="lg:col-span-6">
+          <div className="rounded-[2rem] bg-cream-gradient border border-border/60 p-8 md:p-12 shadow-soft">
+            <PublicationCarousel />
+          </div>
+        </div>
+      </section>
+
+      {/* DIRECTORS */}
+      <section className="bg-secondary/40 py-28">
+        <div className="container-x">
+          <div className="flex flex-wrap items-end justify-between gap-6">
+            <div className="max-w-xl">
+              <span className="text-xs uppercase tracking-[0.25em] text-accent font-semibold">Director board</span>
+              <h2 className="mt-4 font-display text-4xl md:text-5xl text-primary text-balance">
+                The scholars guiding<br /><span className="italic font-light">the movement.</span>
+              </h2>
+            </div>
+            <Link to="/board" className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all">
+              Meet the full board <ArrowRight className="size-4" />
+            </Link>
+          </div>
+          <div className="mt-12 grid md:grid-cols-3 gap-6">
+            {directors.map((d) => (
+              <article key={d.name} className="group rounded-3xl overflow-hidden border border-border bg-background hover:shadow-elevated transition">
+                <div className="aspect-[4/5] overflow-hidden">
+                  <img src={d.image} alt={d.name} loading="lazy" className="size-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                </div>
+                <div className="p-6">
+                  <h3 className="font-display text-xl text-primary">{d.name}</h3>
+                  <div className="text-xs uppercase tracking-widest text-accent font-semibold mt-1">{d.role}</div>
+                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{d.bio}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* LATEST NEWS */}
       <section className="container-x py-28">
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <div className="max-w-xl">
+            <span className="text-xs uppercase tracking-[0.25em] text-accent font-semibold">Latest news</span>
+            <h2 className="mt-4 font-display text-4xl md:text-5xl text-primary text-balance">
+              What's happening<br /><span className="italic font-light">across our network.</span>
+            </h2>
+          </div>
+          <Link to="/news" className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all">
+            All news <ArrowRight className="size-4" />
+          </Link>
+        </div>
+        <div className="mt-12 grid md:grid-cols-3 gap-6">
+          {latestNews.map((n) => (
+            <Link
+              key={n.slug}
+              to="/news/$slug"
+              params={{ slug: n.slug }}
+              className="group rounded-3xl overflow-hidden border border-border bg-background hover:shadow-elevated hover:border-accent/40 transition-all"
+            >
+              <div className="aspect-[4/3] overflow-hidden">
+                <img src={n.image} alt={n.title} loading="lazy" className="size-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              </div>
+              <div className="p-6">
+                <div className="flex items-center gap-2 text-[11px] uppercase tracking-widest text-muted-foreground">
+                  <span className="text-accent font-semibold">{n.category}</span>
+                  <span>•</span>
+                  <span className="inline-flex items-center gap-1.5"><Calendar className="size-3" />{formatDate(n.date)}</span>
+                </div>
+                <h3 className="mt-3 font-display text-xl text-primary leading-snug">{n.title}</h3>
+                <p className="mt-2 text-sm text-muted-foreground line-clamp-2">{n.excerpt}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="container-x pb-28">
         <div className="relative overflow-hidden rounded-[2.5rem] bg-hero text-primary-foreground p-10 md:p-16">
           <div
             className="absolute inset-0 opacity-15 mix-blend-overlay"
