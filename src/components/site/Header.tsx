@@ -6,8 +6,11 @@ import logo from "@/assets/ieb-logo.png";
 const nav = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
+  { to: "/board", label: "Board" },
   { to: "/curriculum", label: "Curriculum" },
   { to: "/publications", label: "Publications" },
+  { to: "/news", label: "News" },
+  { to: "/gallery", label: "Gallery" },
   { to: "/activities", label: "Activities" },
   { to: "/contact", label: "Contact" },
 ] as const;
