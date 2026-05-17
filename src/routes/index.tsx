@@ -7,6 +7,7 @@ import logo from "@/assets/ieb-logo.png";
 import { news } from "@/data/news";
 import { directors } from "@/data/board";
 import { PublicationCarousel } from "@/components/site/PublicationCarousel";
+import { HeroSlider } from "@/components/site/HeroSlider";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -86,10 +87,7 @@ function HomePage() {
             </div>
           </div>
           <div className="lg:col-span-5 relative">
-            <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-elevated">
-              <img src={hero} alt="Madrasa classroom" className="absolute inset-0 size-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-transparent" />
-            </div>
+            <HeroSlider />
             <div className="absolute -left-6 -bottom-6 bg-background text-foreground rounded-2xl shadow-elevated p-5 max-w-xs hidden md:block">
               <div className="flex items-center gap-3">
                 <img src={logo} alt="" className="size-10 object-contain" />
@@ -178,7 +176,7 @@ function HomePage() {
       </section>
 
       {/* PUBLICATIONS SHOWCASE */}
-      <section className="container-x py-28 grid lg:grid-cols-12 gap-12 items-center">
+      <section className="container-x py-28 grid lg:grid-cols-12 gap-12 items-center overflow-hidden">
         <div className="lg:col-span-6">
           <span className="text-xs uppercase tracking-[0.25em] text-accent font-semibold">Our publications</span>
           <h2 className="mt-4 font-display text-4xl md:text-5xl text-primary text-balance">
@@ -198,8 +196,8 @@ function HomePage() {
             Browse the catalogue <ArrowRight className="size-4" />
           </Link>
         </div>
-        <div className="lg:col-span-6">
-          <div className="rounded-[2rem] bg-cream-gradient border border-border/60 p-8 md:p-12 shadow-soft">
+        <div className="lg:col-span-6 w-full min-w-0">
+          <div className="rounded-[2rem] bg-cream-gradient border border-border/60 p-5 sm:p-8 md:p-12 shadow-soft overflow-hidden">
             <PublicationCarousel />
           </div>
         </div>
