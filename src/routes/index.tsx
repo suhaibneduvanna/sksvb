@@ -46,60 +46,7 @@ function HomePage() {
   return (
     <>
       {/* HERO */}
-      <section className="relative overflow-hidden bg-hero text-primary-foreground">
-        <div
-          className="absolute inset-0 opacity-25 mix-blend-overlay"
-          style={{ backgroundImage: `url(${pattern})`, backgroundSize: "cover", backgroundPosition: "center" }}
-          aria-hidden
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-primary/60" aria-hidden />
-        <div className="container-x relative pt-20 pb-28 md:pt-32 md:pb-40 grid lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-7 animate-fade-up">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 backdrop-blur px-4 py-1.5 text-xs uppercase tracking-[0.2em]">
-              <Sparkles className="size-3.5" /> Est. by Samastha Kerala
-            </span>
-            <h1 className="mt-6 font-display text-5xl md:text-7xl lg:text-[5.5rem] leading-[0.95] font-semibold text-balance">
-              Knowledge,<br />
-              <span className="italic font-light bg-gradient-to-r from-white via-purple-200 to-purple-400 bg-clip-text text-transparent">faith</span>{" "}
-              and the next<br />generation.
-            </h1>
-            <p className="font-arabic text-2xl md:text-3xl mt-6 opacity-80" dir="rtl">
-              هيئة التعليم السني بعموم كيرالا
-            </p>
-            <p className="mt-6 max-w-xl text-base md:text-lg opacity-85 leading-relaxed text-pretty">
-              Headed by Indian Grand Mufti Moulana Sheikh Aboobacker, the Islamic
-              Educational Board nurtures a patriotic, cultured generation through
-              moral and spiritual learning across India.
-            </p>
-            <div className="mt-10 flex flex-wrap gap-4">
-              <Link
-                to="/about"
-                className="inline-flex items-center gap-2 rounded-full bg-white text-primary px-7 py-3.5 text-sm font-semibold shadow-elevated hover:shadow-glow transition"
-              >
-                About the Board <ArrowRight className="size-4" />
-              </Link>
-              <Link
-                to="/curriculum"
-                className="inline-flex items-center gap-2 rounded-full border border-white/30 px-7 py-3.5 text-sm font-semibold hover:bg-white/10 transition"
-              >
-                View Curriculum
-              </Link>
-            </div>
-          </div>
-          <div className="lg:col-span-5 relative">
-            <HeroSlider />
-            <div className="absolute -left-6 -bottom-6 bg-background text-foreground rounded-2xl shadow-elevated p-5 max-w-xs hidden md:block">
-              <div className="flex items-center gap-3">
-                <img src={logo} alt="" className="size-10 object-contain" />
-                <div>
-                  <div className="text-xs uppercase tracking-widest text-muted-foreground">Founded for</div>
-                  <div className="font-display font-semibold">Religious Harmony</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroSlider />
 
       {/* STATS */}
       <section className="container-x -mt-16 relative z-10">

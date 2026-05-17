@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import hero from "@/assets/hero-classroom.jpg";
@@ -14,42 +13,24 @@ const slides = [
 ];
 
 export function HeroSlider() {
-  const [emblaRef, embla] = useEmblaCarousel({ loop: true }, [
+  const [emblaRef] = useEmblaCarousel({ loop: true }, [
     Autoplay({ delay: 4500, stopOnInteraction: false }),
   ]);
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    if (!embla) return;
-    const onSelect = () => setIndex(embla.selectedScrollSnap());
-    embla.on("select", onSelect);
-    onSelect();
-    return () => {
-      embla.off("select", onSelect);
-    };
-  }, [embla]);
 
   return (
-    <div className="relative aspect-[4/5] rounded-3xl overflow-hidden shadow-elevated">
-      <div ref={emblaRef} className="h-full overflow-hidden">
-        <div className="flex h-full">
+    <div className="relative w-full overflow-hidden">
+      <div ref={emblaRef} className="w-full overflow-hidden">
+        <div className="flex w-full">
           {slides.map((s, i) => (
-            <div key={i} className="relative flex-[0_0_100%] min-w-0 h-full">
-              <img src={s.src} alt={s.alt} className="absolute inset-0 size-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-transparent" />
+            <div key={i} className="relative flex-[0_0_100%] min-w-0 w-full">
+              <img
+                src={s.src}
+                alt={s.alt}
+                className="w-full h-[60vh] md:h-[80vh] lg:h-[85vh] object-cover"
+              />
             </div>
           ))}
         </div>
-      </div>
-      <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex items-center gap-1.5 z-10">
-        {slides.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => embla?.scrollTo(i)}
-            aria-label={`Go to slide ${i + 1}`}
-            className={`h-1.5 rounded-full transition-all ${i === index ? "w-6 bg-white" : "w-1.5 bg-white/50"}`}
-          />
-        ))}
       </div>
     </div>
   );
