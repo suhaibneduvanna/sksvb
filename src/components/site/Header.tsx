@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 import logo from "@/assets/ieb-logo.png";
+import mark from "@/assets/ieb-mark.png";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -22,7 +23,8 @@ export function Header() {
     <header className="sticky top-0 z-50 backdrop-blur-md bg-background/85 border-b border-border/60">
       <div className="container-x flex items-center justify-between h-20">
         <Link to="/" className="flex items-center gap-3 group" onClick={() => setOpen(false)}>
-          <img src={logo} alt="Islamic Educational Board" className="h-12 w-12 object-contain" />
+          <img src={mark} alt="Islamic Educational Board" className="h-12 w-12 object-contain sm:hidden" />
+          <img src={logo} alt="Islamic Educational Board" className="h-12 w-12 object-contain hidden sm:block" />
           <div className="hidden sm:block leading-tight">
             <div className="font-display font-semibold text-primary text-base tracking-tight">
               Islamic Educational Board
