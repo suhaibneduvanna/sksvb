@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { publications } from "@/data/publications";
 import { BookCover } from "./BookCover";
 
-const featured = publications.filter((p) => ["10", "8", "+2", "5", "+1", "7"].includes(p.classLevel)).slice(0, 8);
+const featured = publications.slice(0, 8);
 
 export function PublicationCarousel() {
-  const [emblaRef, embla] = useEmblaCarousel({ loop: true, align: "center" });
+  const [emblaRef, embla] = useEmblaCarousel({ loop: true, align: "center" }, [Autoplay({ delay: 4000, stopOnInteraction: false })]);
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -29,10 +30,9 @@ export function PublicationCarousel() {
               <div className="mx-auto max-w-[260px]">
                 <BookCover pub={p} size="lg" />
                 <div className="text-center mt-5">
-                  <div className="text-[11px] uppercase tracking-widest text-accent font-semibold">{p.subject}</div>
                   <div className="font-display text-lg text-primary mt-1">{p.title}</div>
                   <div className="text-xs text-muted-foreground mt-1">
-                    {p.syllabus === "Common" ? "Common" : `${p.syllabus} school`} • {p.language}
+                    {p.author}
                   </div>
                 </div>
               </div>

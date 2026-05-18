@@ -4,10 +4,12 @@ import hero from "@/assets/hero-classroom.jpg";
 import books from "@/assets/books.jpg";
 import pattern from "@/assets/pattern.jpg";
 import logo from "@/assets/ieb-logo.png";
+import aboutImg from "@/assets/about.jpg";
 import { news } from "@/data/news";
 import { directors } from "@/data/board";
 import { PublicationCarousel } from "@/components/site/PublicationCarousel";
 import { HeroSlider } from "@/components/site/HeroSlider";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -24,9 +26,9 @@ export const Route = createFileRoute("/")({
 
 const stats = [
   { value: "10,000+", label: "Affiliated Madrasas" },
-  { value: "1 Million", label: "Students Educated" },
-  { value: "50,000", label: "Teachers Trained" },
-  { value: "140+", label: "Textbooks Published" },
+  { value: "5 Million+", label: "Students Educated" },
+  { value: "50,000+", label: "Teachers Trained" },
+  { value: "400+", label: "Textbooks Published" },
 ];
 
 const pillars = [
@@ -50,18 +52,18 @@ function HomePage() {
 
       {/* STATS */}
       <section className="container-x -mt-16 relative z-10">
-        <div className="rounded-3xl bg-background shadow-elevated border border-border/60 grid grid-cols-2 md:grid-cols-4 divide-x divide-border/60 overflow-hidden">
+        <div className="rounded-3xl shadow-elevated border border-border/60 grid grid-cols-2 md:grid-cols-4 gap-[1px] bg-border/60 overflow-hidden">
           {stats.map((s) => (
-            <div key={s.label} className="p-8 text-center">
-              <div className="font-display text-3xl md:text-4xl text-primary font-semibold">{s.value}</div>
-              <div className="text-xs md:text-sm uppercase tracking-widest text-muted-foreground mt-2">{s.label}</div>
+            <div key={s.label} className="p-5 sm:p-6 md:p-8 text-center bg-background flex flex-col justify-center">
+              <div className="font-display text-xl sm:text-2xl md:text-3xl text-primary font-semibold tracking-tight">{s.value}</div>
+              <div className="text-[8px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-widest text-muted-foreground mt-1 sm:mt-2">{s.label}</div>
             </div>
           ))}
         </div>
       </section>
 
       {/* MISSION */}
-      <section className="container-x py-28 md:py-36 grid lg:grid-cols-2 gap-16 items-center">
+      <section className="container-x py-16 md:py-24 grid lg:grid-cols-2 gap-16 items-center">
         <div>
           <span className="text-xs uppercase tracking-[0.25em] text-accent font-semibold">Our mission</span>
           <h2 className="mt-4 font-display text-4xl md:text-5xl text-balance text-primary">
@@ -79,25 +81,25 @@ function HomePage() {
             schools for general education.
           </p>
           <Link
-            to="/about"
+            to="/history"
             className="mt-8 inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
           >
             Read our story <ArrowRight className="size-4" />
           </Link>
         </div>
         <div className="relative">
-          <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-elevated">
-            <img src={books} alt="Islamic textbooks" className="size-full object-cover" loading="lazy" />
+          <div className="aspect-[10/10] rounded-3xl overflow-hidden shadow-elevated">
+            <img src={aboutImg} alt="Islamic textbooks" className="size-full object-cover" loading="lazy" />
           </div>
-          <div className="absolute -bottom-8 -right-4 md:-right-8 bg-accent-gradient text-accent-foreground rounded-2xl p-6 max-w-xs shadow-glow">
+          {/* <div className="absolute -bottom-8 -right-4 md:-right-8 bg-accent-gradient text-accent-foreground rounded-2xl p-6 max-w-xs shadow-glow">
             <div className="font-display text-3xl font-semibold">140+</div>
             <div className="text-sm opacity-90 mt-1">Textbooks across Arabic, Malayalam, Kannada, Tamil, Urdu & English.</div>
-          </div>
+          </div> */}
         </div>
       </section>
 
       {/* PILLARS */}
-      <section className="bg-secondary/40 py-28">
+      <section className="bg-secondary/40 py-16">
         <div className="container-x">
           <div className="max-w-2xl">
             <span className="text-xs uppercase tracking-[0.25em] text-accent font-semibold">What we stand for</span>
@@ -123,7 +125,7 @@ function HomePage() {
       </section>
 
       {/* PUBLICATIONS SHOWCASE */}
-      <section className="container-x py-28 grid lg:grid-cols-12 gap-12 items-center overflow-hidden">
+      <section className="container-x py-16 grid lg:grid-cols-12 gap-12 items-center overflow-hidden">
         <div className="lg:col-span-6">
           <span className="text-xs uppercase tracking-[0.25em] text-accent font-semibold">Our publications</span>
           <h2 className="mt-4 font-display text-4xl md:text-5xl text-primary text-balance">
@@ -133,9 +135,9 @@ function HomePage() {
           <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed text-pretty max-w-xl">
             From foundational Aqeedah to advanced Fiqh, our textbooks cover every class from -2 to +2 in both Shafi and Hanafi traditions, plus a common moral curriculum. Written in Arabic, Malayalam, Kannada, Tamil, Urdu and English — every page calls for religious harmony and patriotism.
           </p>
-          <p className="mt-4 text-muted-foreground leading-relaxed max-w-xl">
+          {/* <p className="mt-4 text-muted-foreground leading-relaxed max-w-xl">
             Centralised valuations and a unified syllabus mean a student in Calicut and one in Kolkata read the very same lesson, on the very same day.
-          </p>
+          </p> */}
           <Link
             to="/publications"
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-6 py-3 text-sm font-semibold hover:shadow-elevated transition"
@@ -151,7 +153,7 @@ function HomePage() {
       </section>
 
       {/* DIRECTORS */}
-      <section className="bg-secondary/40 py-28">
+      <section className="bg-secondary/40 py-16">
         <div className="container-x">
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div className="max-w-xl">
@@ -173,7 +175,6 @@ function HomePage() {
                 <div className="p-6">
                   <h3 className="font-display text-xl text-primary">{d.name}</h3>
                   <div className="text-xs uppercase tracking-widest text-accent font-semibold mt-1">{d.role}</div>
-                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{d.bio}</p>
                 </div>
               </article>
             ))}
@@ -182,7 +183,7 @@ function HomePage() {
       </section>
 
       {/* LATEST NEWS */}
-      <section className="container-x py-28">
+      <section className="container-x py-16">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div className="max-w-xl">
             <span className="text-xs uppercase tracking-[0.25em] text-accent font-semibold">Latest news</span>
@@ -220,7 +221,7 @@ function HomePage() {
       </section>
 
       {/* CTA */}
-      <section className="container-x pb-28">
+      <section className="container-x pt-10">
         <div className="relative overflow-hidden rounded-[2.5rem] bg-hero text-primary-foreground p-10 md:p-16">
           <div
             className="absolute inset-0 opacity-15 mix-blend-overlay"

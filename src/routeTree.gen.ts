@@ -9,30 +9,74 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as VisionMissionRouteImport } from './routes/vision-mission'
+import { Route as VideosRouteImport } from './routes/videos'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as ResultsRouteImport } from './routes/results'
+import { Route as RefundRouteImport } from './routes/refund'
 import { Route as PublicationsRouteImport } from './routes/publications'
-import { Route as NewsRouteImport } from './routes/news'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as HistoryRouteImport } from './routes/history'
 import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as DownloadsRouteImport } from './routes/downloads'
 import { Route as CurriculumRouteImport } from './routes/curriculum'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CircularsRouteImport } from './routes/circulars'
 import { Route as BoardRouteImport } from './routes/board'
 import { Route as ActivitiesRouteImport } from './routes/activities'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as NewsIndexRouteImport } from './routes/news.index'
 import { Route as NewsSlugRouteImport } from './routes/news.$slug'
 
+const VisionMissionRoute = VisionMissionRouteImport.update({
+  id: '/vision-mission',
+  path: '/vision-mission',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VideosRoute = VideosRouteImport.update({
+  id: '/videos',
+  path: '/videos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResultsRoute = ResultsRouteImport.update({
+  id: '/results',
+  path: '/results',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RefundRoute = RefundRouteImport.update({
+  id: '/refund',
+  path: '/refund',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PublicationsRoute = PublicationsRouteImport.update({
   id: '/publications',
   path: '/publications',
   getParentRoute: () => rootRouteImport,
 } as any)
-const NewsRoute = NewsRouteImport.update({
-  id: '/news',
-  path: '/news',
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HistoryRoute = HistoryRouteImport.update({
+  id: '/history',
+  path: '/history',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GalleryRoute = GalleryRouteImport.update({
   id: '/gallery',
   path: '/gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DownloadsRoute = DownloadsRouteImport.update({
+  id: '/downloads',
+  path: '/downloads',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CurriculumRoute = CurriculumRouteImport.update({
@@ -43,6 +87,11 @@ const CurriculumRoute = CurriculumRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CircularsRoute = CircularsRouteImport.update({
+  id: '/circulars',
+  path: '/circulars',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BoardRoute = BoardRouteImport.update({
@@ -65,10 +114,15 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const NewsIndexRoute = NewsIndexRouteImport.update({
+  id: '/news/',
+  path: '/news/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const NewsSlugRoute = NewsSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => NewsRoute,
+  id: '/news/$slug',
+  path: '/news/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -76,24 +130,42 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/activities': typeof ActivitiesRoute
   '/board': typeof BoardRoute
+  '/circulars': typeof CircularsRoute
   '/contact': typeof ContactRoute
   '/curriculum': typeof CurriculumRoute
+  '/downloads': typeof DownloadsRoute
   '/gallery': typeof GalleryRoute
-  '/news': typeof NewsRouteWithChildren
+  '/history': typeof HistoryRoute
+  '/privacy': typeof PrivacyRoute
   '/publications': typeof PublicationsRoute
+  '/refund': typeof RefundRoute
+  '/results': typeof ResultsRoute
+  '/terms': typeof TermsRoute
+  '/videos': typeof VideosRoute
+  '/vision-mission': typeof VisionMissionRoute
   '/news/$slug': typeof NewsSlugRoute
+  '/news/': typeof NewsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/activities': typeof ActivitiesRoute
   '/board': typeof BoardRoute
+  '/circulars': typeof CircularsRoute
   '/contact': typeof ContactRoute
   '/curriculum': typeof CurriculumRoute
+  '/downloads': typeof DownloadsRoute
   '/gallery': typeof GalleryRoute
-  '/news': typeof NewsRouteWithChildren
+  '/history': typeof HistoryRoute
+  '/privacy': typeof PrivacyRoute
   '/publications': typeof PublicationsRoute
+  '/refund': typeof RefundRoute
+  '/results': typeof ResultsRoute
+  '/terms': typeof TermsRoute
+  '/videos': typeof VideosRoute
+  '/vision-mission': typeof VisionMissionRoute
   '/news/$slug': typeof NewsSlugRoute
+  '/news': typeof NewsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -101,12 +173,21 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/activities': typeof ActivitiesRoute
   '/board': typeof BoardRoute
+  '/circulars': typeof CircularsRoute
   '/contact': typeof ContactRoute
   '/curriculum': typeof CurriculumRoute
+  '/downloads': typeof DownloadsRoute
   '/gallery': typeof GalleryRoute
-  '/news': typeof NewsRouteWithChildren
+  '/history': typeof HistoryRoute
+  '/privacy': typeof PrivacyRoute
   '/publications': typeof PublicationsRoute
+  '/refund': typeof RefundRoute
+  '/results': typeof ResultsRoute
+  '/terms': typeof TermsRoute
+  '/videos': typeof VideosRoute
+  '/vision-mission': typeof VisionMissionRoute
   '/news/$slug': typeof NewsSlugRoute
+  '/news/': typeof NewsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -115,36 +196,63 @@ export interface FileRouteTypes {
     | '/about'
     | '/activities'
     | '/board'
+    | '/circulars'
     | '/contact'
     | '/curriculum'
+    | '/downloads'
     | '/gallery'
-    | '/news'
+    | '/history'
+    | '/privacy'
     | '/publications'
+    | '/refund'
+    | '/results'
+    | '/terms'
+    | '/videos'
+    | '/vision-mission'
     | '/news/$slug'
+    | '/news/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/activities'
     | '/board'
+    | '/circulars'
     | '/contact'
     | '/curriculum'
+    | '/downloads'
     | '/gallery'
-    | '/news'
+    | '/history'
+    | '/privacy'
     | '/publications'
+    | '/refund'
+    | '/results'
+    | '/terms'
+    | '/videos'
+    | '/vision-mission'
     | '/news/$slug'
+    | '/news'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/activities'
     | '/board'
+    | '/circulars'
     | '/contact'
     | '/curriculum'
+    | '/downloads'
     | '/gallery'
-    | '/news'
+    | '/history'
+    | '/privacy'
     | '/publications'
+    | '/refund'
+    | '/results'
+    | '/terms'
+    | '/videos'
+    | '/vision-mission'
     | '/news/$slug'
+    | '/news/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -152,15 +260,60 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ActivitiesRoute: typeof ActivitiesRoute
   BoardRoute: typeof BoardRoute
+  CircularsRoute: typeof CircularsRoute
   ContactRoute: typeof ContactRoute
   CurriculumRoute: typeof CurriculumRoute
+  DownloadsRoute: typeof DownloadsRoute
   GalleryRoute: typeof GalleryRoute
-  NewsRoute: typeof NewsRouteWithChildren
+  HistoryRoute: typeof HistoryRoute
+  PrivacyRoute: typeof PrivacyRoute
   PublicationsRoute: typeof PublicationsRoute
+  RefundRoute: typeof RefundRoute
+  ResultsRoute: typeof ResultsRoute
+  TermsRoute: typeof TermsRoute
+  VideosRoute: typeof VideosRoute
+  VisionMissionRoute: typeof VisionMissionRoute
+  NewsSlugRoute: typeof NewsSlugRoute
+  NewsIndexRoute: typeof NewsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/vision-mission': {
+      id: '/vision-mission'
+      path: '/vision-mission'
+      fullPath: '/vision-mission'
+      preLoaderRoute: typeof VisionMissionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/videos': {
+      id: '/videos'
+      path: '/videos'
+      fullPath: '/videos'
+      preLoaderRoute: typeof VideosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/results': {
+      id: '/results'
+      path: '/results'
+      fullPath: '/results'
+      preLoaderRoute: typeof ResultsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/refund': {
+      id: '/refund'
+      path: '/refund'
+      fullPath: '/refund'
+      preLoaderRoute: typeof RefundRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/publications': {
       id: '/publications'
       path: '/publications'
@@ -168,11 +321,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PublicationsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/news': {
-      id: '/news'
-      path: '/news'
-      fullPath: '/news'
-      preLoaderRoute: typeof NewsRouteImport
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/history': {
+      id: '/history'
+      path: '/history'
+      fullPath: '/history'
+      preLoaderRoute: typeof HistoryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/gallery': {
@@ -180,6 +340,13 @@ declare module '@tanstack/react-router' {
       path: '/gallery'
       fullPath: '/gallery'
       preLoaderRoute: typeof GalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/downloads': {
+      id: '/downloads'
+      path: '/downloads'
+      fullPath: '/downloads'
+      preLoaderRoute: typeof DownloadsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/curriculum': {
@@ -194,6 +361,13 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/circulars': {
+      id: '/circulars'
+      path: '/circulars'
+      fullPath: '/circulars'
+      preLoaderRoute: typeof CircularsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/board': {
@@ -224,37 +398,54 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/news/': {
+      id: '/news/'
+      path: '/news'
+      fullPath: '/news/'
+      preLoaderRoute: typeof NewsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/news/$slug': {
       id: '/news/$slug'
-      path: '/$slug'
+      path: '/news/$slug'
       fullPath: '/news/$slug'
       preLoaderRoute: typeof NewsSlugRouteImport
-      parentRoute: typeof NewsRoute
+      parentRoute: typeof rootRouteImport
     }
   }
 }
-
-interface NewsRouteChildren {
-  NewsSlugRoute: typeof NewsSlugRoute
-}
-
-const NewsRouteChildren: NewsRouteChildren = {
-  NewsSlugRoute: NewsSlugRoute,
-}
-
-const NewsRouteWithChildren = NewsRoute._addFileChildren(NewsRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ActivitiesRoute: ActivitiesRoute,
   BoardRoute: BoardRoute,
+  CircularsRoute: CircularsRoute,
   ContactRoute: ContactRoute,
   CurriculumRoute: CurriculumRoute,
+  DownloadsRoute: DownloadsRoute,
   GalleryRoute: GalleryRoute,
-  NewsRoute: NewsRouteWithChildren,
+  HistoryRoute: HistoryRoute,
+  PrivacyRoute: PrivacyRoute,
   PublicationsRoute: PublicationsRoute,
+  RefundRoute: RefundRoute,
+  ResultsRoute: ResultsRoute,
+  TermsRoute: TermsRoute,
+  VideosRoute: VideosRoute,
+  VisionMissionRoute: VisionMissionRoute,
+  NewsSlugRoute: NewsSlugRoute,
+  NewsIndexRoute: NewsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

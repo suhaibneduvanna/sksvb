@@ -1,0 +1,28 @@
+     <div class="event__thumb">
+                                                  <a href="publication-details.php?publication_id=37">
+                                                      <img src="uploads/publications/6766923aa7f7c.jpeg" alt="publication thumbnail">
+                                                  </a>
+                                              </div>
+
+                                              <div class="event__meta text-center">
+                                                  <h5 class="event__title category-title">
+                                                      <a href="javascript:void(0);" class="toggle-description" 
+                                                          data-bs-toggle="collapse" 
+                                                          data-bs-target="#desc-37" 
+                                                          aria-expanded="false" aria-controls="desc-37">
+                                                          2 اقرأ لتعليم اللغة العربية                                                      </a>
+                                                  </h5>
+                                              </div>
+                                              <div class="text-center">
+                                                  <span>جعفر عمر السعدي / يوسف المصباحي الأفضلي</span>
+                                              </div>
+
+                                              <!-- Collapsible Description -->
+                                              <div class="collapse description-container text-center mt-2" id="desc-37">
+                                                  <p class="publication-description p-2">
+                                                      <p>كتاب&nbsp;<strong>"اقرأ"</strong>هو مصدر تعليمي مبتكر يهدف إلى تعليم اللغة العربية بطريقة ممتعة وفعّالة. هذا الكتاب يشتمل على جزأين، يحتوي الكتاب على مجموعة متنوعة من التمارين الممتعة التي تساعد الطلاب على تطوير مهاراتهم اللغوية، بدءًا من القراءة والفهم وصولاً إلى الكتابة والتعبير. تم تصميم التمارين بشكل يشجع على التفاعل ويحفز المتعلم على الاستمتاع بتعلم اللغة العربية، مما يجعل الكتاب أداة مثالية للمبتدئين ولمن يسعى إلى تعزيز مهاراته في اللغة العربية بطريقة ممتعة وشيقة</p>                                                  </p>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+           

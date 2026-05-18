@@ -17,7 +17,7 @@ export const Route = createFileRoute("/board")({
 function BoardPage() {
   return (
     <>
-      <section className="container-x pt-20 md:pt-28 pb-10">
+      <section className="container-x pt-26 md:pt-34 pb-10">
         <span className="text-xs uppercase tracking-[0.25em] text-accent font-semibold">Leadership</span>
         <h1 className="mt-4 font-display text-5xl md:text-7xl font-semibold text-primary text-balance max-w-4xl">
           The board behind <span className="italic font-light">a million students.</span>
@@ -27,7 +27,7 @@ function BoardPage() {
         </p>
       </section>
 
-      <section className="container-x pb-24 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <section className="container-x grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {fullBoard.map((m) => (
           <article key={m.name} className="group rounded-3xl overflow-hidden border border-border bg-background hover:shadow-elevated transition">
             <div className="aspect-[4/5] overflow-hidden">
@@ -36,8 +36,6 @@ function BoardPage() {
             <div className="p-6">
               <h2 className="font-display text-xl text-primary">{m.name}</h2>
               <div className="text-xs uppercase tracking-widest text-accent font-semibold mt-1">{m.role}</div>
-              {m.region && <div className="text-xs text-muted-foreground mt-1">{m.region}</div>}
-              <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{m.bio}</p>
             </div>
           </article>
         ))}

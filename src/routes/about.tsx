@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import scholar from "@/assets/scholar.jpg";
+import about from "@/assets/about.jpg";
 import pattern from "@/assets/pattern.jpg";
 
 export const Route = createFileRoute("/about")({
@@ -9,7 +9,7 @@ export const Route = createFileRoute("/about")({
       { name: "description", content: "Headed by Indian Grand Mufti Moulana Sheikh Aboobacker, the Islamic Educational Board has shaped Islamic and moral education in India for generations." },
       { property: "og:title", content: "About the Islamic Educational Board" },
       { property: "og:description", content: "Discover the story, leadership and vision behind one of India's largest madrasa networks." },
-      { property: "og:image", content: scholar },
+      { property: "og:image", content: about },
     ],
   }),
   component: AboutPage,
@@ -40,7 +40,7 @@ function AboutPage() {
       <section className="container-x py-24 grid lg:grid-cols-12 gap-12 items-start">
         <div className="lg:col-span-5">
           <div className="rounded-3xl overflow-hidden shadow-elevated aspect-[4/5] sticky top-28">
-            <img src={scholar} alt="Indian Grand Mufti Moulana Sheikh Aboobacker" className="size-full object-cover" loading="lazy" />
+            <img src={about} alt="Indian Grand Mufti Moulana Sheikh Aboobacker" className="size-full object-cover" loading="lazy" />
           </div>
         </div>
         <div className="lg:col-span-7 space-y-10">

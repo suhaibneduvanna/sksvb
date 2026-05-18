@@ -25,7 +25,7 @@ const offices = [
 function ContactPage() {
   return (
     <>
-      <section className="container-x pt-20 md:pt-28 pb-12">
+      <section className="container-x pt-26 md:pt-34 pb-12">
         <span className="text-xs uppercase tracking-[0.25em] text-accent font-semibold">Contact</span>
         <h1 className="mt-4 font-display text-5xl md:text-7xl font-semibold text-primary text-balance max-w-4xl">
           Let's build a better<br /><span className="italic font-light">tomorrow, together.</span>
@@ -62,14 +62,16 @@ function ContactPage() {
           <div className="rounded-3xl bg-hero text-primary-foreground p-8">
             <h3 className="font-display text-2xl">Headquarters</h3>
             <ul className="mt-5 space-y-3 text-sm opacity-90">
-              <li className="flex gap-3"><MapPin className="size-4 mt-0.5" /> Calicut, Kerala, India</li>
-              <li className="flex gap-3"><Phone className="size-4 mt-0.5" /> +91 495 000 0000</li>
-              <li className="flex gap-3"><Mail className="size-4 mt-0.5" /> info@ieboard.org</li>
+              <li className="flex gap-3"><MapPin className="size-4 mt-0.5" /> Samastha Centre,
+                Markaz Complex Road,
+                Calicut - 06, Kerala, India</li>
+              <li className="flex gap-3"><Phone className="size-4 mt-0.5" /> +91-495-2772840</li>
+              <li className="flex gap-3"><Mail className="size-4 mt-0.5" /> madrasaalhind@gmail.com</li>
             </ul>
           </div>
           <div className="rounded-3xl border border-border p-8">
             <h3 className="font-display text-xl text-primary">Office hours</h3>
-            <p className="mt-3 text-sm text-muted-foreground">Saturday — Thursday<br /> 9:00 AM — 5:00 PM IST</p>
+            <p className="mt-3 text-sm text-muted-foreground">Monday — Saturday<br /> 10:00 AM — 6:00 PM IST</p>
           </div>
         </aside>
       </section>

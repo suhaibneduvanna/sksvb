@@ -11,12 +11,12 @@ export const Route = createFileRoute("/news/$slug")({
   head: ({ loaderData }) => ({
     meta: loaderData
       ? [
-          { title: `${loaderData.item.title} — Islamic Educational Board` },
-          { name: "description", content: loaderData.item.excerpt },
-          { property: "og:title", content: loaderData.item.title },
-          { property: "og:description", content: loaderData.item.excerpt },
-          { property: "og:image", content: loaderData.item.image },
-        ]
+        { title: `${loaderData.item.title} — Islamic Educational Board` },
+        { name: "description", content: loaderData.item.excerpt },
+        { property: "og:title", content: loaderData.item.title },
+        { property: "og:description", content: loaderData.item.excerpt },
+        { property: "og:image", content: loaderData.item.image },
+      ]
       : [],
   }),
   notFoundComponent: () => (
@@ -38,7 +38,7 @@ function NewsArticle() {
 
   return (
     <>
-      <article className="container-x pt-16 md:pt-24 pb-16 max-w-4xl">
+      <article className="container-x pt-26 md:pt-34 pb-10 max-w-4xl">
         <Link to="/news" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary">
           <ArrowLeft className="size-4" /> All news
         </Link>

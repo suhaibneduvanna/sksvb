@@ -1,15 +1,16 @@
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import hero from "@/assets/hero-classroom.jpg";
-import students from "@/assets/hero-students.jpg";
-import event1 from "@/assets/event-1.jpg";
-import event2 from "@/assets/event-2.jpg";
+import slide from "@/assets/slide.jpg";
+import smartEventus from "@/assets/slider-smart-eventus.jpg";
+import painting from "@/assets/slider-painting.jpg";
+import painting2 from "@/assets/slider-painting-2.jpg";
 
 const slides = [
-  { src: students, alt: "Young students engaged in classroom activities" },
-  { src: hero, alt: "Madrasa classroom" },
-  { src: event1, alt: "Annual conference" },
-  { src: event2, alt: "Morning class in session" },
+  { src: painting2, alt: "Student activities" },
+  { src: smartEventus, alt: "Smart Eventus Award Ceremony" },
+  { src: slide, alt: "Young students engaged in classroom activities" },
+
 ];
 
 export function HeroSlider() {

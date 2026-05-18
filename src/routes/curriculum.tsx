@@ -33,7 +33,7 @@ const stages = [
 function CurriculumPage() {
   return (
     <>
-      <section className="container-x pt-20 md:pt-28 pb-12">
+      <section className="container-x pt-26 md:pt-34 pb-12">
         <span className="text-xs uppercase tracking-[0.25em] text-accent font-semibold">Curriculum</span>
         <h1 className="mt-4 font-display text-5xl md:text-7xl font-semibold text-primary text-balance max-w-4xl">
           Two hours, every<br />
@@ -83,7 +83,7 @@ function CurriculumPage() {
         </div>
       </section>
 
-      <section className="container-x py-24">
+      <section className="container-x pt-24">
         <div className="rounded-[2rem] bg-hero text-primary-foreground p-10 md:p-14">
           <h2 className="font-display text-3xl md:text-4xl text-balance max-w-3xl">
             Common books. Common uniform. Common examinations — across every affiliated institution.

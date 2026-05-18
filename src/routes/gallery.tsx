@@ -26,7 +26,7 @@ function GalleryPage() {
 
   return (
     <>
-      <section className="container-x pt-20 md:pt-28 pb-10">
+      <section className="container-x pt-26 md:pt-34 pb-10">
         <span className="text-xs uppercase tracking-[0.25em] text-accent font-semibold">Gallery</span>
         <h1 className="mt-4 font-display text-5xl md:text-7xl font-semibold text-primary text-balance max-w-4xl">
           Our work, <span className="italic font-light">in pictures.</span>
@@ -39,11 +39,10 @@ function GalleryPage() {
             <button
               key={f}
               onClick={() => setActive(f)}
-              className={`px-4 py-2 rounded-full text-sm font-medium border transition ${
-                active === f
+              className={`px-4 py-2 rounded-full text-sm font-medium border transition ${active === f
                   ? "bg-primary text-primary-foreground border-primary"
                   : "bg-background border-border text-foreground/70 hover:border-accent/40"
-              }`}
+                }`}
             >
               {f}
             </button>
